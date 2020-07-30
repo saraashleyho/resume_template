@@ -1,13 +1,13 @@
 const data = {
   name: 'Sara Ho',
   mainEmoji: {
-    character: '👋',
-    ariaLabel: 'wave',
+    character: '🍦',
+    ariaLabel: 'icecream',
   },
   phoneNumber: '978',
-  email: 'sho',
-  githubHandle: 'xxx',
-  linkedInHandle: 'yyy',
+  email: 'sho@rbi.com',
+  githubHandle: 'saraashleyho',
+  linkedInHandle: 'sara-ho-a9a681a4/',
 };
 
 document.title = data.name;
