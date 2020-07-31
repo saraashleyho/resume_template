@@ -10,7 +10,7 @@ const data = {
   linkedInHandle: 'sara-ho-a9a681a4/',
   workExperiences: [
     {
-      emoji: "🍔"
+      emoji: "🍔",
       jobTitle: "MBA Summer Intern",
       institution: "Restaurant Brands International",
       dates: "summer 2019", // end with "present" for your current job
@@ -21,7 +21,7 @@ const data = {
       ]
     },
      {
-      emoji: "💰"
+      emoji: "💰",
       jobTitle: "Private Equity Associate - Investor Relations & Fundraising",
       institution: "Hellman & Friedman",
       dates: "2016 - 2018", // end with "present" for your current job
@@ -32,7 +32,7 @@ const data = {
       ]
     },
      {
-      emoji: "🏗"
+      emoji: "🏗",
       jobTitle: "Associate - Opportunity Funds Group",
       institution: "Stockbridge Real Estate",
       dates: "2014 - 2016", // end with "present" for your current job
@@ -45,7 +45,7 @@ const data = {
   ],
   educationalExperiences: [
   {
-    emoji: "📚"
+    emoji: "📚",
     university: "Harvard University",
     school: "Harvard Business School",
     dates: "2018 - 2020",
@@ -55,7 +55,7 @@ const data = {
     ]
     },
    {
-    emoji: "🌲"
+    emoji: "🌲",
     university: "Stanford University",
     school: "School of Engineering",
     dates: "2008 - 2012",
