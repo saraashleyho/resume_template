@@ -64,6 +64,18 @@ const data = {
       "Phi Beta Kappa Academic Honors Society and Tau Beta Pi Engineering Honors Society. "
     ]
   }
+  ],
+  skills: [
+    {
+      emoji: "📝",
+      dates: "2000 - present",
+      skillone: "Languages",
+      skilltwo: "Frameworks",
+      details: [
+        "Proficient in French",
+        "Beginner HTML, CSS, Javascript",
+        ]
+    }
   ]
 };
 
@@ -128,5 +140,23 @@ const eachEducationalExperienceHTML = data.educationalExperiences.map(renderEduc
 const allEducationalExperiencesHTML = eachEducationalExperienceHTML.join('');
 educationContainer.innerHTML = allEducationalExperiencesHTML;
 
-
-
+function renderSkills(skill) {
+  return `
+      <div>
+      <span class="date">${skill.dates}</span>
+      <h3>
+        <span role="img" aria-label="talk">${skill.emoji}</span>
+        ${skill.skillone}<span class="comma">,</span>
+        <span class="light">${skill.skilltwo}</span>
+      </h3>
+      <ul>
+      ${skill.details
+        .map(detail => `<li>${detail}</li>`)
+        .join('')}
+      </ul>
+    </div>`;
+   }
+   const skillContainer = document.querySelector(`#skills`);
+   const eachSkillHTML = data.skills.map(renderSkills);
+   const allSkillsHTML = eachSkillHTML.join('');
+   skillContainer.innerHTML = allSkillsHTML;
