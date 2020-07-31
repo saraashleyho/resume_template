@@ -88,3 +88,45 @@ githubContainer.textContent += data.githubHandle;
 const linkedInContainer = document.querySelector('#linkedin-link');
 linkedInContainer.textContent += data.linkedInHandle;
 
+function renderWorkExperience(workExperience) {
+  return `
+  <div>
+    <span class="date">${workExperience.dates}</span>
+    <h3>
+      <span role="img" aria-label="">${workExperience.emoji}</span>
+      ${workExperience.jobTitle}<span class="comma">,</span>
+      <span class="light">${workExperience.institution}</span>
+    </h3>
+    <ul>
+      ${workExperience.details.map(detail => `<li>${detail}</li>`).join('')}
+    </ul>
+  </div>`;
+}
+
+const workExperienceContainer = document.querySelector('#work-experience');
+const eachWorkExperienceHTML = data.workExperiences.map(renderWorkExperience);
+const allWorkExperiencesHTML = eachWorkExperienceHTML.join('');
+workExperienceContainer.innerHTML = allWorkExperiencesHTML;
+
+const renderEducationalExperience = educationalExperience => `
+<div>
+  <span class="date">${educationalExperience.dates}</span>
+  <h3>
+    <span role="img" aria-label="">${educationalExperience.emoji}</span>
+    ${educationalExperience.university}<span class="comma">,</span>
+    <span class="light">${educationalExperience.school}</span>
+  </h3>
+  <ul>
+    ${educationalExperience.details
+      .map(detail => `<li>${detail}</li>`)
+      .join('')}
+  </ul>
+</div>`;
+
+const educationContainer = document.querySelector(`#education`);
+const eachEducationalExperienceHTML = data.educationalExperiences.map(renderEducationalExperience);
+const allEducationalExperiencesHTML = eachEducationalExperienceHTML.join('');
+educationContainer.innerHTML = allEducationalExperiencesHTML;
+
+
+
