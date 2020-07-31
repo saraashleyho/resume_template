@@ -8,9 +8,11 @@ const data = {
   email: 'sho@rbi.com',
   githubHandle: 'saraashleyho',
   linkedInHandle: 'sara-ho-a9a681a4/',
+  // Add header emojis
   workExperiences: [
     {
       emoji: "🍔",
+      ariaLabel: "burger",
       jobTitle: "MBA Summer Intern",
       institution: "Restaurant Brands International",
       dates: "summer 2019", // end with "present" for your current job
@@ -22,6 +24,7 @@ const data = {
     },
      {
       emoji: "💰",
+      ariaLabel: "moneybag",
       jobTitle: "Private Equity Associate - Investor Relations & Fundraising",
       institution: "Hellman & Friedman",
       dates: "2016 - 2018", // end with "present" for your current job
@@ -33,6 +36,7 @@ const data = {
     },
      {
       emoji: "🏗",
+      ariaLabel: "crane",
       jobTitle: "Associate - Opportunity Funds Group",
       institution: "Stockbridge Real Estate",
       dates: "2014 - 2016", // end with "present" for your current job
@@ -46,6 +50,7 @@ const data = {
   educationalExperiences: [
   {
     emoji: "📚",
+    ariaLabel: "books",
     university: "Harvard University",
     school: "Harvard Business School",
     dates: "2018 - 2020",
@@ -56,6 +61,7 @@ const data = {
     },
    {
     emoji: "🌲",
+    ariaLabel: "tree",
     university: "Stanford University",
     school: "School of Engineering",
     dates: "2008 - 2012",
@@ -64,6 +70,19 @@ const data = {
       "Phi Beta Kappa Academic Honors Society and Tau Beta Pi Engineering Honors Society. "
     ]
   }
+  ],
+  skills: [
+    {
+      emoji: "📝",
+      ariaLabel: "notepad",
+      dates: "2000 - present",
+      skillone: "Languages",
+      skilltwo: "Frameworks",
+      details: [
+        "Proficient in French",
+        "Beginner HTML, CSS, Javascript",
+        ]
+    }
   ]
 };
 
@@ -78,22 +97,33 @@ emojiContainer.setAttribute('aria-label', data.mainEmoji.ariaLabel);
 
 const phoneNumberContainer = document.querySelector('#phone-number');
 phoneNumberContainer.textContent = data.phoneNumber;
+const phoneLink = document.querySelector('li:nth-child(1) a');
+phoneLink.href += data.phoneNumber;
 
 const emailContainer = document.querySelector('#email');
 emailContainer.textContent = data.email;
+const emailLink = document.querySelector('li:nth-child(2) a');
+emailLink.href += data.email;
 
 const githubContainer = document.querySelector('#github-link');
 githubContainer.textContent += data.githubHandle;
+const githubLink = document.querySelector('li:nth-child(3) a');
+githubLink.href += data.githubHandle;
 
 const linkedInContainer = document.querySelector('#linkedin-link');
 linkedInContainer.textContent += data.linkedInHandle;
+const linkedInLink = document.querySelector('li:nth-child(4) a');
+linkedInLink.href += data.linkedInHandle;
+
+//ADD PATRICKS const workExperienceHeading = documentquerySelector...
+
 
 function renderWorkExperience(workExperience) {
   return `
   <div>
     <span class="date">${workExperience.dates}</span>
     <h3>
-      <span role="img" aria-label="">${workExperience.emoji}</span>
+      <span role="img" aria-label="${workExperience.ariaLabel}">${workExperience.emoji}</span>
       ${workExperience.jobTitle}<span class="comma">,</span>
       <span class="light">${workExperience.institution}</span>
     </h3>
@@ -112,7 +142,7 @@ const renderEducationalExperience = educationalExperience => `
 <div>
   <span class="date">${educationalExperience.dates}</span>
   <h3>
-    <span role="img" aria-label="">${educationalExperience.emoji}</span>
+    <span role="img" aria-label="${educationalExperience.ariaLabel}">${educationalExperience.emoji}</span>
     ${educationalExperience.university}<span class="comma">,</span>
     <span class="light">${educationalExperience.school}</span>
   </h3>
@@ -128,5 +158,25 @@ const eachEducationalExperienceHTML = data.educationalExperiences.map(renderEduc
 const allEducationalExperiencesHTML = eachEducationalExperienceHTML.join('');
 educationContainer.innerHTML = allEducationalExperiencesHTML;
 
+function renderSkills(skill) {
+  return `
+      <div>
+      <span class="date">${skill.dates}</span>
+      <h3>
+        <span role="img" aria-label="${skill.ariaLabel}">${skill.emoji}</span>
+        ${skill.skillone}<span class="comma">,</span>
+        <span class="light">${skill.skilltwo}</span>
+      </h3>
+      <ul>
+      ${skill.details
+        .map(detail => `<li>${detail}</li>`)
+        .join('')}
+      </ul>
+    </div>`;
+   }
+   const skillContainer = document.querySelector(`#skills`);
+   const eachSkillHTML = data.skills.map(renderSkills);
+   const allSkillsHTML = eachSkillHTML.join('');
+   skillContainer.innerHTML = allSkillsHTML;
 
 
